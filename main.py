@@ -12,7 +12,7 @@ def searchWorkbook(workbookPath, workbookName, keyword):
             for cell in col:
                 # If the keyword is found anywhere in the cell, complete match
                 # Non case sensitive
-                if keyword.lower().replace('-', '') in str(cell.value).lower().replace('-', ''):
+                if keyword.lower() in str(cell.value).lower():
                     print('ITEM FOUND: "' + str(cell.value) + '" IN WORKBOOK "' +
                           workbookName + '" IN SHEET "' + sheet.title +
                           '" AT CELL "' + cell.coordinate + '"\n')
@@ -51,7 +51,7 @@ label1 = Label(window, text='Path to directory containing spreadsheets:', font=(
 label1.pack(pady=(10, 0))
 
 response1 = Entry(window, font=('Arial', 12))
-response1.insert(0, 'D:/Inventory Spreadsheets')
+response1.insert(0, 'C:/example-folder')
 response1.pack()
 
 label2 = Label(window, text='Keyword to search for:', font=('Arial', 12))
